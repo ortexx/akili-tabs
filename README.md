@@ -63,7 +63,7 @@ You can add items to the loop.
       </tab-title>
     </tab-menu>
     <tab-content in="${ this.data }">
-      <tab-pane recreate>
+      <tab-pane>
         ${ this.loopValue.pane }
       </tab-pane>
     </tab-content>
