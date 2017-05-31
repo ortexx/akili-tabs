@@ -1,5 +1,5 @@
 # akili-tabs
-Tabs component for Akili framework for [Akili framework](https://github.com/ortexx/akili).
+Tabs component for [Akili framework](https://github.com/ortexx/akili).
 
 ## Example
 
