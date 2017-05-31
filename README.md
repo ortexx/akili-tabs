@@ -1,4 +1,4 @@
-# akili-tabs
+# akili-tabs [![npm version](https://badge.fury.io/js/akili-tabs.svg)](https://badge.fury.io/js/akili-tabs)
 Tabs component for [Akili framework](https://github.com/ortexx/akili).
 
 ## Example
