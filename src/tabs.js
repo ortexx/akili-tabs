@@ -18,7 +18,7 @@ export default class Tabs extends Akili.Component {
   constructor(...args) {
     super(...args);
 
-    this.active = null;
+    this.scope.active = this.active = null;
   }
 
   changedActive(index) {
