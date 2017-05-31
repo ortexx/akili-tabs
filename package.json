@@ -1,0 +1,49 @@
+{
+  "name": "akili-tabs",
+  "version": "0.1.0",
+  "description": "Tabs component for Akili framework",
+  "main": "./tabs.js",
+  "author": {
+    "name": "Balasyan Alexandr",
+    "email": "mywebstreet@gmail.com"
+  },
+  "scripts": {
+    "start": "webpack",
+    "test": "karma start"
+  },
+  "keywords": [
+    "akili",
+    "tabs",
+    "tab"
+  ],
+  "dependencies": {
+    "akili": "^0.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-stage-0": "^6.22.0",
+    "babel-preset-stage-3": "^6.22.0",
+    "chai": "^3.5.0",
+    "istanbul-instrumenter-loader": "^2.0.0",
+    "karma": "^1.5.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage-istanbul-reporter": "^1.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.3",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.3",
+    "mocha": "^3.2.0",
+    "webpack": "^2.2.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ortexx/array-tabs"
+  },
+  "engines": {
+    "node": ">=5.0.0"
+  }
+}
