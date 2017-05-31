@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
@@ -41,7 +41,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ortexx/array-tabs"
+    "url": "https://github.com/ortexx/akili-tabs"
   },
   "engines": {
     "node": ">=5.0.0"
