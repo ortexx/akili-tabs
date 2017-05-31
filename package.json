@@ -2,7 +2,7 @@
   "name": "akili-tabs",
   "version": "0.1.0",
   "description": "Tabs component for Akili framework",
-  "main": "./tabs.js",
+  "main": "./src/tabs.js",
   "author": {
     "name": "Balasyan Alexandr",
     "email": "mywebstreet@gmail.com"
