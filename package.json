@@ -4,7 +4,7 @@
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
-    "name": "Balasyan Alexandr",
+    "name": "Alexandr Balasyan",
     "email": "mywebstreet@gmail.com"
   },
   "scripts": {
