@@ -7,7 +7,7 @@ import For, { Loop } from 'akili/src/components/for';
 export default class Tabs extends Akili.Component {
   static events = ['tab'];
 
-  static define = function() {
+  static define() {
     Akili.component('tabs', Tabs);
     Akili.component('tab-menu', TabMenu);
     Akili.component('tab-content', TabContent);
@@ -186,3 +186,4 @@ Tabs.TabTitle = TabTitle;
 Tabs.TabContent = TabContent;
 Tabs.TabPane = TabPane;
 
+window.AkiliTabs = Tabs;

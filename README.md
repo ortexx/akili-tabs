@@ -8,7 +8,7 @@ import Akili from 'akili';
 import Component from 'akili/src/component';
 import Tabs from 'akili-tabs';
 
-class App extends Akili.Component {
+class App extends Component {
   static define() {
     Akili.component('app', App);
   }
@@ -108,8 +108,8 @@ __isActiveTab__ indicating whether this item is active or not.
 ```
 
 You can add __recreate__ attribute to __tab-pane__ like 
-[if](http://akilijs.com/docs/components#docs_conditional_statements) component feature.
+[if](http://akilijs.com/docs/components#docs_conditional_statements) component feature.  
 
-
+If you load the component as a script, you will have __window.AkiliTabs__ to get it.
 
  
