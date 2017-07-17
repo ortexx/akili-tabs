@@ -41,7 +41,7 @@ export default class Tabs extends Akili.Component {
     let lastActive = this.active;
 
     if(tabs[index] === undefined) {
-      throw new Error(`"tabs" component index "${index}" is out of range `);
+      throw new Error(`"tabs" component index "${index}" is out of range`);
     }
 
     this.scope.active = this.active = index;
