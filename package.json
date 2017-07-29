@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
@@ -17,7 +17,7 @@
     "tab"
   ],
   "dependencies": {
-    "akili": "^0.2.0"
+    "akili": "^0.3.0"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
