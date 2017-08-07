@@ -5,11 +5,12 @@ const path = require('path');
 const pack = require('./package.json');
 
 let entry = {
-  'akili-tabs': "./src/tabs.js",
-  'akili-tabs.min': "./src/tabs.js"
+  'akili-tabs': "./src/tabs.js"
 };
 
 let plugins = [];
+let minimize = process.env.MINIMIZE;
+let watch = !process.env.BUILD;
 
 let banner = `Tabs component for Akili framework\n
 @version ${pack.version}
@@ -17,7 +18,6 @@ let banner = `Tabs component for Akili framework\n
 {@link https://github.com/ortexx/akili-tabs}
 {@link https://github.com/ortexx/akili}
 {@link https://akilijs.com}`;
-
 
 plugins.push(new webpack.BannerPlugin({
   banner: banner.trim()
@@ -31,8 +31,10 @@ plugins.push(new webpack.optimize.UglifyJsPlugin({
   }
 }));
 
+minimize && (entry['akili-tabs.min'] = entry['akili-tabs']);
+
 let config = {
-  watch: false,
+  watch: watch,
   bail: true,
   devtool: "inline-source-map",
   entry: entry,
@@ -51,7 +53,7 @@ let config = {
           path.resolve("node_modules/akili")
         ],
         query: {
-          presets: ['es2015', 'stage-0', 'stage-3']
+          presets: ['es2015', 'stage-2', 'stage-3']
         }
       }
     ]

@@ -71,7 +71,7 @@ You can add items to the loop.
 <app>
 ```
 
-To change active item use __active__ attribute.
+To change the active item use __active__ attribute.
   
 ```html
   <tabs active="${ this.activeTab }">
