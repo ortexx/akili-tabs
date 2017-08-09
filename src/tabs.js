@@ -30,7 +30,7 @@ export default class Tabs extends Akili.Component {
     let paneLength = this.child(c => c instanceof TabContent).getTabs().length;
 
     if(titleLength != paneLength) {
-      throw new Error(`"tab-title" and "tab-content" component counts are different: ${titleLength}/${paneLength}`);
+      throw new Error(`"tab-title" and "tab-content" components count is different: ${titleLength}/${paneLength}`);
     }
 
     this.setActiveTab(this.attrs.active || 0);
