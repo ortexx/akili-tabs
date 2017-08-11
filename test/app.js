@@ -42,6 +42,6 @@ export default class App extends Component {
           <tab-pane recreate>\${ this.loopValue.pane }</tab-pane>
         </tab-content>
       </tabs>
-    `
+    `;
   }
 }
