@@ -87,7 +87,7 @@ To get change use __on-tab__ event.
   </tabs>
 ```
 
-Every __tab-title__ and __tab-pane__ component has scope value
+Each __tab-title__ and __tab-pane__ component has scope value
 __isActiveTab__ indicating whether this item is active or not.
 
 ```html
