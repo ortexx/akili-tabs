@@ -53,7 +53,7 @@ let config = {
           path.resolve("node_modules/akili")
         ],
         query: {
-          presets: ['es2015', 'stage-2', 'stage-3']
+          presets: ['env', 'stage-2', 'stage-3']
         }
       }
     ]

@@ -74,17 +74,17 @@ You can add items to the loop.
 To change the active item use __active__ attribute.
   
 ```html
-  <tabs active="${ this.activeTab }">
-    ...
-  </tabs>
+<tabs active="${ this.activeTab }">
+  ...
+</tabs>
 ```
 
 To get change use __on-tab__ event.
 
 ```html
-  <tabs on-tab="${ this.activeTab = event.detail }">
-    ...
-  </tabs>
+<tabs on-tab="${ this.activeTab = event.detail }">
+  ...
+</tabs>
 ```
 
 Each __tab-title__ and __tab-pane__ component has scope value
