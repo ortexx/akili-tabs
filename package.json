@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
@@ -26,7 +26,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.22.0",
     "babel-preset-stage-3": "^6.22.0",
-    "chai": "^3.5.0",
+    "chai": "^4.1.2",
     "istanbul-instrumenter-loader": "^2.0.0",
     "karma": "^1.5.0",
     "karma-chai": "^0.1.0",

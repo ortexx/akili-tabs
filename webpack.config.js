@@ -47,11 +47,6 @@ let config = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: '/node_modules/',
-        include: [
-          path.resolve("src"),
-          path.resolve("node_modules/akili")
-        ],
         query: {
           presets: ['env', 'stage-2', 'stage-3']
         }
