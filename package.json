@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
@@ -37,7 +37,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.3",
     "mocha": "^3.2.0",
-    "webpack": "^2.2.1"
+    "webpack": "^3.0.0"
   },
   "license": "MIT",
   "repository": {

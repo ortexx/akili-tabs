@@ -8,11 +8,11 @@ export default class Tabs extends Akili.Component {
   static events = ['tab'];
 
   static define() {
-    Akili.component('tabs', Tabs);
-    Akili.component('tab-menu', TabMenu);
-    Akili.component('tab-content', TabContent);
-    Akili.component('tab-title', TabTitle);
-    Akili.component('tab-pane', TabPane);
+    Akili.component('tabs', this);
+    Akili.component('tab-menu', this.TabMenu);
+    Akili.component('tab-content', this.TabContent);
+    Akili.component('tab-title', this.TabTitle);
+    Akili.component('tab-pane', this.TabPane);
   };
 
   constructor(...args) {
