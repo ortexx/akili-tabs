@@ -1,12 +1,13 @@
 {
   "name": "akili-tabs",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
     "name": "Alexandr Balasyan",
     "email": "mywebstreet@gmail.com"
   },
+  "homepage": "https://akilijs.com",
   "scripts": {
     "start": "webpack",
     "build": "BUILD=true MINIMIZE=true webpack",
@@ -18,7 +19,7 @@
     "tab"
   ],
   "dependencies": {
-    "akili": "~0.4.0"
+    "akili": "~0.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",

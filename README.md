@@ -94,12 +94,12 @@ __isActiveTab__ indicating whether this item is active or not.
 <app>
   <tabs>
     <tab-menu in="${ this.data }">
-      <tab-title class="${ this.__utils.class({ active: this.isActiveTab}) }">
+      <tab-title class="${ utils.class({ active: this.isActiveTab}) }">
         ${ this.loopValue.title }
       </tab-title>
     </tab-menu>
     <tab-content in="${ this.data }">
-      <tab-pane class="${ this.__utils.class({ active: this.isActiveTab}) }">
+      <tab-pane class="${ utils.class({ active: this.isActiveTab}) }">
         ${ this.loopValue.pane }
       </tab-pane>
     </tab-content>

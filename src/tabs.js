@@ -21,10 +21,6 @@ export default class Tabs extends Akili.Component {
     this.scope.active = this.active = null;
   }
 
-  changedActive(index) {
-    this.setActiveTab(index);
-  }
-
   resolved() {
     let titleLength = this.child(c => c instanceof TabMenu).getTabs().length;
     let paneLength = this.child(c => c instanceof TabContent).getTabs().length;
@@ -33,7 +29,7 @@ export default class Tabs extends Akili.Component {
       throw new Error(`"tab-title" and "tab-content" components count is different: ${titleLength}/${paneLength}`);
     }
 
-    this.setActiveTab(this.attrs.active || 0);
+    this.attr('active', index => this.setActiveTab(index || 0), { callOnStart: true });
   }
 
   setActiveTab(index) {
@@ -72,11 +68,15 @@ export class TabMenu extends For {
   }
 
   created() {
-    this.iterable && super.created.apply(this, arguments);
+    if(this.iterable) {
+      return super.created.apply(this, arguments);
+    } 
   }
 
   compiled() {
-    this.iterable && super.compiled.apply(this, arguments);
+    if(this.iterable) {
+      return super.compiled.apply(this, arguments);
+    } 
   }
 
   getTabs() {
@@ -113,7 +113,7 @@ export class TabContent extends TabMenu {
  * The body group item component
  */
 export class TabPane extends Loop {
-  static template = `<if recreate="\${this.recreate}" is="\${this.isActiveTab}">\${this.__content}</if>`;
+  static template = '<if recreate="${this.recreate}" is="${this.isActiveTab}">${this.__content}</if>';
   static booleanAttributes = ['recreate'];
 
   constructor(...args) {
@@ -128,13 +128,9 @@ export class TabPane extends Loop {
     this.scope.isActiveTab = this.isActive = false;
   }
 
-  compiled() {
-    super.compiled.apply(this, arguments);
-    this.attrs.hasOwnProperty('recreate') && this.setRecreation(this.attrs.recreate);
-  }
-
-  changedRecreate(value) {
-    this.setRecreation(value)
+  compiled() {    
+    this.attr('recreate', this.setRecreation);
+    return super.compiled.apply(this, arguments);
   }
 
   setRecreation(value) {
@@ -170,9 +166,9 @@ export class TabTitle extends Loop {
     });
   }
 
-  compiled() {
-    super.compiled.apply(this, arguments);
+  compiled() {   
     this.index = this.tabs.child(c => c instanceof TabMenu).getTabIndex(this);
+    return super.compiled.apply(this, arguments);
   }
 
   setActivity(activity) {
@@ -185,5 +181,4 @@ Tabs.TabMenu = TabMenu;
 Tabs.TabTitle = TabTitle;
 Tabs.TabContent = TabContent;
 Tabs.TabPane = TabPane;
-
 window.AkiliTabs = Tabs;
