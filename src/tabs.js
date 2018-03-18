@@ -13,7 +13,7 @@ export default class Tabs extends Akili.Component {
     Akili.component('tab-content', this.TabContent);
     Akili.component('tab-title', this.TabTitle);
     Akili.component('tab-pane', this.TabPane);
-  };
+  }
 
   constructor(...args) {
     super(...args);
@@ -43,6 +43,7 @@ export default class Tabs extends Akili.Component {
     this.scope.active = this.active = index;
 
     if(!tabs.length) {
+      // eslint-disable-next-line no-console
       Akili.options.debug && console.warn('Not found any child component "tab-title" for "tab-menu"');
     }
 
@@ -120,6 +121,7 @@ export class TabPane extends Loop {
     super(...args);
 
     if(!this.el.parentNode.__akili || !(this.el.parentNode.__akili instanceof TabContent)) {
+      // eslint-disable-next-line no-console
       Akili.options.debug && console.warn('Not found parent component "tab-content" for "tab-pane"');
       this.cancel();
     }
@@ -152,6 +154,7 @@ export class TabTitle extends Loop {
     this.scope.isActiveTab = this.isActive = false;
 
     if(!this.el.parentNode.__akili || !(this.el.parentNode.__akili instanceof TabMenu)) {
+      // eslint-disable-next-line no-console
       Akili.options.debug && console.warn('Not found parent component "tab-menu" for "tab-title"');
       this.cancel();
     }
