@@ -1,7 +1,7 @@
 /*!
  * Tabs component for Akili framework
  * 
- * @version 0.5.0
+ * @version 0.5.1
  * @author Alexandr Balasyan <mywebstreet@gmail.com>
  * {@link https://github.com/ortexx/akili-tabs}
  * {@link https://github.com/ortexx/akili}
