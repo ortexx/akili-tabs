@@ -22,17 +22,28 @@ export default class Tabs extends Akili.Component {
   }
 
   resolved() {
-    let titleLength = this.child(c => c instanceof TabMenu).getTabs().length;
-    let paneLength = this.child(c => c instanceof TabContent).getTabs().length;
+    const menuChild = this.child(c => c instanceof TabMenu);
+    const contentChild = this.child(c => c instanceof TabContent);
+
+    if(!menuChild) {
+      throw new Error(`Component "tabs" must have "tab-menu" component inside itself`);
+    }
+
+    if(!contentChild) {
+      throw new Error(`Component "tabs" must have "tab-content" component inside itself`);
+    }
+
+    const titleLength = menuChild.getTabs().length;
+    const paneLength = contentChild.getTabs().length;
 
     if(titleLength != paneLength) {
       throw new Error(`"tab-title" and "tab-content" components count is different: ${titleLength}/${paneLength}`);
     }
 
-    this.attr('active', index => this.setActiveTab(index || 0), { callOnStart: true });
+    this.attr('active', this.setActiveTab, { callOnStart: true });
   }
 
-  setActiveTab(index) {
+  setActiveTab(index = 0) {
     let tabs = this.child(c => c instanceof TabMenu).getTabs();
     let lastActive = this.active;
 
@@ -85,13 +96,7 @@ export class TabMenu extends For {
   }
 
   getTabIndex(tab) {
-    let tabs = this.getTabs();
-
-    for(let i = 0, l = tabs.length; i < l; i++) {
-      if(tabs[i] === tab) {
-        return i;
-      }
-    }
+    return this.getTabs().indexOf(tab);
   }
 
   getTabsByIndex(i) {
@@ -151,22 +156,19 @@ export class TabTitle extends Loop {
   constructor(...args) {
     super(...args);
 
-    this.scope.isActiveTab = this.isActive = false;
-
     if(!this.el.parentNode.__akili || !(this.el.parentNode.__akili instanceof TabMenu)) {
       // eslint-disable-next-line no-console
       Akili.options.debug && console.warn('Not found parent component "tab-menu" for "tab-title"');
       this.cancel();
     }
+
+    this.scope.isActiveTab = this.isActive = false;
   }
 
   created() {
-    super.created.apply(this, arguments);
     this.tabs = this.parent(c => c instanceof Tabs);
-
-    this.el.addEventListener('click', () => {
-      this.tabs.setActiveTab(this.index);
-    });
+    this.el.addEventListener('click', () => this.tabs.setActiveTab(this.index));
+    return super.created.apply(this, arguments);
   }
 
   compiled() {   
