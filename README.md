@@ -10,12 +10,10 @@ import Tabs from 'akili-tabs';
 
 class App extends Component {
   static define() {
-    Akili.component('app', App);
+    Akili.component('app', this);
   }
   
-  constructor(...args) {
-    super(...args);
-    
+  created() {
     this.scope.data = [
       {
         title: 'first title',
@@ -33,7 +31,7 @@ Tabs.define();
 App.define();
 
 document.addEventListener('DOMContentLoaded', () => {
-  Akili.init();
+  Akili.init().catch((err) => console.error(err));
 });
 ```
 
@@ -71,7 +69,7 @@ You can add items to the loop.
 <app>
 ```
 
-To change the active item use __active__ attribute.
+To change the active item, use __active__ attribute.
   
 ```html
 <tabs active="${ this.activeTab }">
@@ -79,7 +77,7 @@ To change the active item use __active__ attribute.
 </tabs>
 ```
 
-To get change use __on-tab__ event.
+To get change, use __on-tab__ event.
 
 ```html
 <tabs on-tab="${ this.activeTab = event.detail }">
@@ -94,12 +92,12 @@ __isActiveTab__ indicating whether this item is active or not.
 <app>
   <tabs>
     <tab-menu in="${ this.data }">
-      <tab-title class="${ utils.class({ active: this.isActiveTab}) }">
+      <tab-title class="${ utils.class({active: this.isActiveTab}) }">
         ${ this.loopValue.title }
       </tab-title>
     </tab-menu>
     <tab-content in="${ this.data }">
-      <tab-pane class="${ utils.class({ active: this.isActiveTab}) }">
+      <tab-pane class="${ utils.class({active: this.isActiveTab}) }">
         ${ this.loopValue.pane }
       </tab-pane>
     </tab-content>

@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "0.5.1",
+  "version": "0.5.8",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
@@ -11,7 +11,8 @@
   "scripts": {
     "start": "webpack",
     "build": "BUILD=true MINIMIZE=true webpack",
-    "test": "karma start"
+    "test": "karma start",
+    "eslint": "eslint src test"
   },
   "keywords": [
     "akili",
@@ -19,7 +20,7 @@
     "tab"
   ],
   "dependencies": {
-    "akili": "~0.5.0"
+    "akili": "~0.5.8"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
