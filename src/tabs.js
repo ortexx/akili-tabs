@@ -2,7 +2,11 @@ import Akili from 'akili';
 import For, { Loop } from 'akili/src/components/for';
 
 /**
- * The main tabs component
+ * Component to work with tabs.
+ * 
+ * @tag tabs  
+ * @attr {number} active - actual tab index
+ * @message {number} tab - sent on active tab change 
  */
 export default class Tabs extends Akili.Component {
   static events = ['tab'];
@@ -67,7 +71,9 @@ export default class Tabs extends Akili.Component {
 }
 
 /**
- * The header group component
+ * Component to control the titles.
+ * 
+ * @attr [in] @see For
  */
 export class TabMenu extends For {
   static matches = '';
@@ -105,7 +111,9 @@ export class TabMenu extends For {
 }
 
 /**
- * The body group component
+ * Component to control the body.
+ * 
+ * @attr [in] @see For
  */
 export class TabContent extends TabMenu {
   constructor(...args) {
@@ -116,7 +124,11 @@ export class TabContent extends TabMenu {
 }
 
 /**
- * The body group item component
+ * Component to work with the body items.
+ * 
+ * @attr @see Loop
+ * @attr [recreate] @see Akili.component.If
+ * @scope {boolean} isActiveTab - the current tab active or not
  */
 export class TabPane extends Loop {
   static template = '<if recreate="${this.recreate}" is="${this.isActiveTab}">${this.__content}</if>';
@@ -128,7 +140,7 @@ export class TabPane extends Loop {
     if(!this.el.parentNode.__akili || !(this.el.parentNode.__akili instanceof TabContent)) {
       // eslint-disable-next-line no-console
       Akili.options.debug && console.warn('Not found parent component "tab-content" for "tab-pane"');
-      this.cancel();
+      return this.cancel();
     }
 
     this.scope.recreate = false;
@@ -150,7 +162,10 @@ export class TabPane extends Loop {
 }
 
 /**
- * The header group item component
+ * Component to work with the title items.
+ * 
+ * @attr @see Loop
+ * @scope {boolean} isActiveTab - the current tab active or not
  */
 export class TabTitle extends Loop {
   constructor(...args) {
@@ -159,7 +174,7 @@ export class TabTitle extends Loop {
     if(!this.el.parentNode.__akili || !(this.el.parentNode.__akili instanceof TabMenu)) {
       // eslint-disable-next-line no-console
       Akili.options.debug && console.warn('Not found parent component "tab-menu" for "tab-title"');
-      this.cancel();
+      return this.cancel();
     }
 
     this.scope.isActiveTab = this.isActive = false;

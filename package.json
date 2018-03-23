@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
