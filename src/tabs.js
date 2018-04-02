@@ -201,4 +201,4 @@ Tabs.TabMenu = TabMenu;
 Tabs.TabTitle = TabTitle;
 Tabs.TabContent = TabContent;
 Tabs.TabPane = TabPane;
-window.AkiliTabs = Tabs;
+Akili.components.Tabs = Tabs;

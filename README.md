@@ -108,6 +108,6 @@ __isActiveTab__ indicating whether this item is active or not.
 You can add __recreate__ attribute to __tab-pane__ like 
 [if](http://akilijs.com/docs/components#docs_conditional_statements) component feature.  
 
-If you load the component as a script, you will have __window.AkiliTabs__ to get it.
+If you load the component as a script, you will have __Akili.components.Tabs__ to get it.
 
  
