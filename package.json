@@ -20,7 +20,7 @@
     "tab"
   ],
   "dependencies": {
-    "akili": "~0.6.0"
+    "akili": "~0.6.8"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
