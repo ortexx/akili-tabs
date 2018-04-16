@@ -1,7 +1,6 @@
-import Component from 'akili/src/component';
 import Akili from 'akili';
 
-export default class App extends Component {
+export default class App extends Akili.Component {
   static define() {
     Akili.component('app', App);
   }

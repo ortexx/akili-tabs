@@ -3,12 +3,9 @@ import Akili from 'akili';
 import App from './app.js';
 import Tabs from '../src/tabs.js';
 
-let app;
-
 Akili.options.debug = false;
-app = document.createElement('app');
+const app = document.createElement('app');
 document.body.appendChild(app);
-
 Tabs.define();
 App.define();
 
@@ -16,7 +13,7 @@ describe('Application initialization', () => {
   let component;
 
   before(() => {
-    return Akili.init(document.body).then(() => {
+    return Akili.init().then(() => {
       component = app.__akili;
     });
   });
