@@ -182,12 +182,12 @@ export class TabTitle extends Loop {
 
   created() {
     this.tabs = this.parent(c => c instanceof Tabs);
-    this.el.addEventListener('click', () => this.tabs.setActiveTab(this.index));
     return super.created.apply(this, arguments);
   }
 
   compiled() {   
     this.index = this.tabs.child(c => c instanceof TabMenu).getTabIndex(this);
+    this.el.addEventListener('click', () => this.tabs.setActiveTab(this.index));
     return super.compiled.apply(this, arguments);
   }
 

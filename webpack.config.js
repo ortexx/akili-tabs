@@ -54,7 +54,7 @@ let config = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['env', 'stage-2', 'stage-3']
+          presets: ['akili']
         }
       }
     ]
