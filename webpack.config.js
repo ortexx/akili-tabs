@@ -1,6 +1,7 @@
 "use strict";
 
 const webpack = require('webpack');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 const pack = require('./package.json');
 
@@ -10,7 +11,7 @@ let entry = {
 
 let plugins = [];
 let minimize = process.env.MINIMIZE;
-let watch = !process.env.BUILD;
+let build = process.env.BUILD;
 
 let banner = `Tabs component for Akili framework\n
 @version ${pack.version}
@@ -23,18 +24,12 @@ plugins.push(new webpack.BannerPlugin({
   banner: banner.trim()
 }));
 
-plugins.push(new webpack.optimize.UglifyJsPlugin({
-  include: /\.min\.js$/,
-  minimize: true,
-  compress: {
-    warnings: false
-  }
-}));
-
 minimize && (entry['akili-tabs.min'] = entry['akili-tabs']);
 
 let config = {
-  watch: watch,
+  mode: build? 'production': 'development',
+  performance: { hints: false },
+  watch: !build,
   bail: true,
   devtool: "inline-source-map",
   entry: entry,
@@ -42,8 +37,21 @@ let config = {
     path: path.join(__dirname, "/dist"),
     filename: "[name].js"
   },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        include: /\.min\.js$/,
+        uglifyOptions: {
+          minimize: true,
+          compress: {
+            warnings: false
+          }
+        }       
+      })
+    ]
+  },
   module: {
-    loaders: [
+    rules: [
       {
         enforce: "pre",
         test: /\.js$/,
