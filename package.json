@@ -56,6 +56,6 @@
     "url": "https://github.com/ortexx/akili-tabs"
   },
   "engines": {
-    "node": ">=5.0.0"
+    "node": ">=8.0.0"
   }
 }
