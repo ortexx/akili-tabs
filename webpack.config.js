@@ -39,6 +39,9 @@ let config = {
     libraryExport: "default",
     libraryTarget: 'umd'
   },
+  externals: {
+    akili: 'Akili'
+  },
   optimization: {
     minimizer: [
       new TerserPlugin({

@@ -1,5 +1,8 @@
 import Akili from 'akili';
-import For, { Loop } from 'akili/src/components/for';
+
+const Component = Akili.Component;
+const For = Akili.components.For;
+const Loop = Akili.components.For.Loop;
 
 /**
  * Component to work with tabs.
@@ -8,7 +11,7 @@ import For, { Loop } from 'akili/src/components/for';
  * @attr {number} active - actual tab index
  * @message {number} tab - sent on active tab change 
  */
-export default class Tabs extends Akili.Component {
+export default class Tabs extends Component {
   static events = ['tab'];
 
   static define() {
@@ -201,4 +204,4 @@ Tabs.TabMenu = TabMenu;
 Tabs.TabTitle = TabTitle;
 Tabs.TabContent = TabContent;
 Tabs.TabPane = TabPane;
-Akili.defaults(() => Akili.components.Tabs = Tabs);
+Akili.components.Tabs = Tabs;
