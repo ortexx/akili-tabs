@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
@@ -9,35 +9,37 @@
   },
   "homepage": "https://akilijs.com",
   "scripts": {
-    "start": "webpack",
-    "build": "BUILD=true MINIMIZE=true webpack",
+    "start": "npm run build",
+    "build": "webpack",
+    "build-prod": "NODE_ENV=production webpack",
     "test": "karma start",
     "eslint": "eslint src test"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run eslint && npm run test && npm run build"
+      "pre-commit": "npm run eslint && npm run test && npm run build-prod"
     }
   },
   "keywords": [
     "akili",
     "tabs",
-    "tab"
+    "tab",
+    "component"
   ],
   "dependencies": {
-    "akili": "^1.0.15"
+    "akili": "^1.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.0.3",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^7.1.4",
     "babel-preset-akili": "^1.0.0",
     "chai": "^4.2.0",
     "eslint": "^4.19.1",
-    "eslint-loader": "^3.0.2",
+    "eslint-loader": "^3.0.3",
     "husky": "^1.3.1",
     "istanbul-instrumenter-loader": "^3.0.0",
-    "karma": "^4.3.0",
+    "karma": "^4.4.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage-istanbul-reporter": "^1.4.3",
@@ -46,9 +48,9 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^3.0.5",
     "mocha": "^5.2.0",
-    "terser-webpack-plugin": "^1.4.1",
-    "webpack": "^4.41.0",
-    "webpack-cli": "^3.3.8"
+    "terser-webpack-plugin": "^2.2.2",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
   },
   "license": "MIT",
   "repository": {

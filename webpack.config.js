@@ -5,13 +5,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 const pack = require('./package.json');
 
-let entry = {
-  'akili-tabs': "./src/tabs.js"
-};
-
 let plugins = [];
-let minimize = process.env.MINIMIZE;
-let build = process.env.BUILD;
+let isProd = process.env.NODE_ENV == 'production';
 
 let banner = `Tabs component for Akili framework\n
 @version ${pack.version}
@@ -24,18 +19,16 @@ plugins.push(new webpack.BannerPlugin({
   banner: banner.trim()
 }));
 
-minimize && (entry['akili-tabs.min'] = entry['akili-tabs']);
-
 let config = {
-  mode: build? 'production': 'development',
+  mode: isProd? 'production': 'development',
   performance: { hints: false },
-  watch: !build,
+  watch: !isProd,
   bail: true,
-  devtool: "inline-source-map",
-  entry,
+  devtool: isProd? false: "inline-source-map",
+  entry: "./src/tabs.js",
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "[name].js",
+    filename: "akili-tabs.js",
     libraryExport: "default",
     libraryTarget: 'umd'
   },
@@ -45,7 +38,6 @@ let config = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        include: /\.min\.js$/,
         extractComments: false
       })
     ]
