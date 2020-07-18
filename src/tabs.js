@@ -121,7 +121,6 @@ export class TabMenu extends For {
 export class TabContent extends TabMenu {
   constructor(...args) {
     super(...args);
-
     this.childSelector = c => c instanceof TabPane;
   }
 }
