@@ -34,10 +34,10 @@ export default class App extends Akili.Component {
         </tab-content>
       </tabs>
       <tabs id="loop" active="\${ this.loopTabsActive }" on-tab="\${ this.loopTabsCounter++ }">
-        <tab-menu in="\${ this.data }">
+        <tab-menu in="\${ this.data }" chunks="1">
           <tab-title>\${ this.loopValue.title }</tab-title>
         </tab-menu>
-        <tab-content in="\${ this.data }">
+        <tab-content in="\${ this.data }" chunks="1">
           <tab-pane recreate>\${ this.loopValue.pane }</tab-pane>
         </tab-content>
       </tabs>
