@@ -1,6 +1,6 @@
 {
   "name": "akili-tabs",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Tabs component for Akili framework",
   "main": "./src/tabs.js",
   "author": {
@@ -27,7 +27,7 @@
     "component"
   ],
   "dependencies": {
-    "akili": "^1.2.0"
+    "akili": "^1.2.9"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -35,10 +35,10 @@
     "babel-loader": "^7.1.4",
     "babel-preset-akili": "^1.0.0",
     "chai": "^4.2.0",
-    "cross-env": "^7.0.2",
+    "cross-env": "^7.0.3",
     "eslint": "^4.19.1",
     "eslint-loader": "^3.0.3",
-    "husky": "^4.3.0",
+    "husky": "^4.3.6",
     "istanbul-instrumenter-loader": "^3.0.0",
     "karma": "^5.2.3",
     "karma-chai": "^0.1.0",
