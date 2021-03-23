@@ -23,7 +23,6 @@ let config = {
   mode: isProd? 'production': 'development',
   performance: { hints: false },
   watch: !isProd,
-  bail: true,
   devtool: isProd? false: "inline-source-map",
   entry: "./src/tabs.js",
   output: {
@@ -53,7 +52,7 @@ let config = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        query: {
+        options: {
           presets: ['akili']
         }
       }
