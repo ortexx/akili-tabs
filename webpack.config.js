@@ -2,6 +2,7 @@
 
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const pack = require('./package.json');
 
@@ -18,6 +19,8 @@ let banner = `Tabs component for Akili framework\n
 plugins.push(new webpack.BannerPlugin({
   banner: banner.trim()
 }));
+
+plugins.push(new ESLintPlugin());
 
 let config = {
   mode: isProd? 'production': 'development',
@@ -44,17 +47,8 @@ let config = {
   module: {
     rules: [
       {
-        enforce: "pre",
         test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        options: {
-          presets: ['akili']
-        }
+        loader: 'babel-loader'
       }
     ]
   },

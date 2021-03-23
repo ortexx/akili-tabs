@@ -1,6 +1,7 @@
 "use strict";
 
 const path = require('path');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 module.exports = function(config) {
   let conf = {
@@ -25,17 +26,9 @@ module.exports = function(config) {
       mode: 'none',
       watch: false,
       devtool: 'inline-source-map',
+      plugins: [new ESLintPlugin({ failOnError: true })],
       module: {
         rules: [
-          {
-            enforce: "pre",
-            test: /\.js$/,
-            exclude: /node_modules/,
-            loader: 'eslint-loader',
-            options: { 
-              failOnError: true 
-            }
-          },
           {
             test: /\.js$/,
             include: [
@@ -50,7 +43,7 @@ module.exports = function(config) {
             test: /\.js$/,
             loader: 'babel-loader',
             options: {
-              presets: ['akili']
+              configFile: path.resolve('./.babelrc')
             }
           }
         ]
